@@ -1,0 +1,43 @@
+.ui.visible.sidebar.vertical.menu.main
+  - if current_user
+    .item
+      .title.avatar
+        - url = "https://github.com/#{current_user.github_login}.png?size=200"
+        = image_tag url, class: 'ui fluid circular image'
+  - else
+    = link_to 'Login', new_user_session_path
+  .item
+    .title
+      i.trello.icon
+      | SCRUM
+    .content
+      .item
+        = link_to 'Sprints', sprints_path
+      .item
+        = link_to 'Events', events_path
+  .item
+    .title
+      i.calendar.icon
+      = link_to 'CALENDAR', calendar_dashboards_path
+  .item
+    .title
+      i.users.icon
+      | TEAM
+    .content
+      .item
+        = link_to 'Members', team_members_path
+  .item
+    .title
+      i.user.icon
+      | MY ACOUNT
+      .content
+        .item
+          = link_to 'Profile', edit_team_member_path(current_user)
+        .item
+          = link_to 'Absences', absences_path
+        .item
+          = link_to 'Logout', destroy_user_session_path, method: :delete
+
+.obs-logo
+  = link_to dashboards_path do
+    = image_tag 'obs-logo2.png', alt: 'opensuse logo', width: 160
