@@ -1,0 +1,54 @@
+// Place all the styles related to the dashboards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body { background: $color2; }
+
+.ui.menu.main {
+  background: $color7;
+  color: $white;
+
+  .title, i, a, .text { color: $white; }
+
+  &.menu .item::before { background: none; }
+  .logo-box {
+    width: 200px;
+  }
+
+  .title.avatar {
+    padding: 15px;
+  }
+}
+
+.obs-logo {
+  height: 60px;
+  padding-left: 230px;
+  padding-top: 10px;
+  img {
+    margin-right: 10px;
+  }
+}
+
+
+section {
+  margin-left: 210px;
+  padding: 45px 25px 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: $color7;
+  height: 25px;
+  border-top: 1px solid $color4;
+}
+
+.pull_requests {
+  max-height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
