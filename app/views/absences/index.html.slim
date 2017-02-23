@@ -1,0 +1,19 @@
+.ui.grid
+  .four.wide.column
+    .ui.segment
+      h1
+        | Absences
+        = new_link_to 'absences'
+      .ui.relaxed.divided.list
+        - @absences.each do |absence|
+          .item
+            i.large.remove.user.middle.aligned.icon
+            .content
+              .descriptions= absence.start_date
+              .description= absence.end_date
+              .action
+                = link_to edit_absence_path(absence) do
+                  i.write.icon
+                = link_to absence_path(absence), method: :delete do
+                  i.remove.icon
+
