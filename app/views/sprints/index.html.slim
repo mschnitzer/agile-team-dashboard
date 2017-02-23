@@ -1,0 +1,18 @@
+.ui.grid
+  .four.wide.column
+    .ui.segment
+      h1
+        | Sprint
+        = new_link_to 'sprints'
+      .ui.relaxed.divided.list
+        - @sprints.each do |sprint|
+          .item
+            .content
+              .header
+                = "#{sprint.start_date.strftime("%d-%m-%Y")} until #{sprint.end_date.strftime("%d-%m-%Y")}"
+                span.action.right.floated
+                  = link_to edit_sprint_path(sprint) do
+                    i.write.icon
+                  = link_to sprint_path(sprint), method: :delete do
+                    i.remove.icon
+
