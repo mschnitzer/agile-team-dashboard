@@ -11,8 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  */
-$import-google-fonts: true !default;
-$font-url: 'https://fonts.googleapis.com/css?family=Lato'
-$font-name: 'Lato' !default;
-$font-family: $font-name;
-@import "semantic-ui";
+@import 'semantic-ui';
+@import 'calendar.min';
+@import 'fullcalendar';
+@import 'colors';
+@import 'override_semantic_ui';
+@import 'base';
+

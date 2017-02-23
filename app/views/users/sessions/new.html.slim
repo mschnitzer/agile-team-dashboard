@@ -1,0 +1,18 @@
+.row
+  .ui.six.wide.column.segment.login
+    h2
+      | Log in
+    = simple_form_for(resource, as: resource_name,
+      url: session_path(resource_name),
+      html: { class: 'ui form' }) do |f|
+      .field
+        = f.input :email, autofocus: true
+      .field
+        = f.input :password, autocomplete: "off"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
+        = f.submit "Log in"
+    = render "users/shared/links"

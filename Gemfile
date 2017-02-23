@@ -33,54 +33,33 @@ gem 'holidays'
 gem 'kaminari'
 gem 'slim'
 gem 'slim-rails'
+gem 'simple_form'
 
 gem 'pundit'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'active_hash'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :test do
-  # for test coverage reports
-  gem 'coveralls', require: false
-  gem 'rainbow'
-  gem 'simplecov', require: false
-  # to ensure a clean state for testing
-  gem 'database_cleaner', '>= 1.0.1'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'launchy'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'poltergeist'
   gem 'timecop'
-  # to fake backend replies
-  gem 'webmock', '>= 2.3.0'
-  # for code quality checks
-  gem 'flog', '> 4.1.0'
-  # for mocking and stubbing
-  gem 'mocha', '> 0.13.0', require: false
-  # for testing common Rails functionality with simple one-liners
-  gem 'shoulda-matchers', '~> 3.1'
-  # To generate random data
-  gem 'rantly'
-
 end
 
-
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get
-  # a debugger console
   gem 'byebug', platform: :mri
-  # as testing framework
-  gem 'rspec-rails', '~> 3.5.0'
-  # for fixtures
-  gem 'factory_girl_rails'
-  # for mocking the backend
-  gem 'vcr'
-  # as alternative to the standard IRB shell
-  gem 'pry', '>= 0.9.12'
-  # for style checks
+  gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rubocop', '~> 0.47.1', require: false
-  # to generate random long strings
-  gem 'faker'
-  # as driver for capybara
-  gem 'poltergeist'
-  # to launch browser in test
-  gem 'launchy'
 end
 
 group :development do
@@ -93,7 +72,5 @@ group :development do
   # in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

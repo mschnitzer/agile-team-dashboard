@@ -15,4 +15,8 @@
 //= require turbolinks
 // Loads all Semantic javascripts
 //= require semantic-ui
+//= require calendar.min
+//= require moment
+//= require fullcalendar
+//= require custom
 //= require_tree .

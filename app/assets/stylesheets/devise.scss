@@ -1,0 +1,26 @@
+@import 'colors';
+
+.fixed-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color2;
+
+  .login {
+    background: $color7;
+    color: $white;
+
+    a { color: $white; }
+  }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  background: $color7;
+}

@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title OBS Dashboard Team
+    = csrf_meta_tags
+    = stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .ui.middle.aligned.eight.column.centered.grid.fixed-layout
+      = yield
+
+    footer.ui.bottom.fixed
+
