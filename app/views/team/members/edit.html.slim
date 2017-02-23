@@ -1,0 +1,19 @@
+.ui.twelve.column.centered.grid
+  .ui.six.wide.column.segment.login
+    = simple_form_for(@member, url: team_member_path(@member), html: { class: 'ui form' }) do |f|
+      = f.input :email, autofocus: true
+      .two.fields
+        = f.input :password, autocomplete: "off"
+        = f.input :password_confirmation, autocomplete: "off"
+      .two.fields
+        = f.input :name
+        = f.input :surname
+      .three.fields
+        = f.input :birthday, as: :string, wrapper_html: { class: 'calendar' }
+        = f.input :github_login
+        = f.input :location
+      .actions
+        .ui.right.floated.buttons
+          = link_to 'Cancel', team_members_path, class: 'ui button'
+          .or
+          = f.submit 'Update', class: 'ui green button'
