@@ -4,6 +4,8 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
+require 'capybara/rspec'
+require 'capybara/poltergeist'
 require 'rspec/rails'
 require 'database_cleaner'
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -26,6 +28,9 @@ require 'database_cleaner'
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
+require 'support/devise'
+require 'support/capybara'
+require 'support/shoulda_matcher'
 require 'support/factory_girl'
 require 'support/database_cleaner'
 require 'support/shoulda_matcher'

@@ -50,8 +50,10 @@ group :test do
   gem 'launchy'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'timecop'
 end
 
