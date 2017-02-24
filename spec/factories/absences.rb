@@ -1,9 +1,17 @@
 FactoryGirl.define do
   factory :absence do
-    user_id 1
-    start_date "2017-02-21"
-    end_date "2017-02-21"
+    user
     description "MyText"
-    absence_kind "MyString"
+
+    factory :vacation do
+      event_type 'vacation'
+      start_date Date.today
+      end_date Date.today + 7.days
+    end
+    factory :sick do
+      event_type 'sick'
+      start_date Date.today
+      end_date Date.tomorrow
+    end
   end
 end

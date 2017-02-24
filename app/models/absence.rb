@@ -9,14 +9,17 @@ end
 
 # == Schema Information
 #
-# Table name: absences
+# Table name: events
 #
-#  id           :integer          not null, primary key
-#  user_id      :integer
-#  start_date   :date
-#  end_date     :date
-#  description  :text
-#  absence_kind :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id          :integer          not null, primary key
+#  name        :string
+#  location    :string
+#  start_date  :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  event_type  :string
+#  end_date    :date
+#  user_id     :integer
+#  type        :string
+#  description :text
 #

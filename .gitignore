@@ -19,6 +19,7 @@
 config/database.yml
 config/secret.yml
 .ruby-gemset
+*.swp
 
 # Ignore pdf directory
 documents/

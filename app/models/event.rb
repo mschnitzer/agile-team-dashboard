@@ -6,8 +6,11 @@ class Event < ApplicationRecord
   COLORS = {
     vacation: 'blue',
     sick: 'red',
-    meeting: 'green',
-    workshop: 'orange'
+    standup: 'green',
+    planning: 'orange',
+    retrospective: 'rose',
+    workshop: 'black',
+    other: 'orange'
   }
 
   # Instance methods
@@ -25,13 +28,15 @@ end
 #
 # Table name: events
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  location   :string
-#  start_date :datetime
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  event_type :string
-#  end_date   :date
-#  user_id    :integer
+#  id          :integer          not null, primary key
+#  name        :string
+#  location    :string
+#  start_date  :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  event_type  :string
+#  end_date    :date
+#  user_id     :integer
+#  type        :string
+#  description :text
 #
