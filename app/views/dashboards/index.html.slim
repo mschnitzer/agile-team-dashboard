@@ -1,43 +1,35 @@
-.ui.grid
+.ui.stackable.column.grid
   .two.column.row
     .column
-      .ui.two.column.grid
+      .ui.stackable.two.column.grid
         - if @meetings
           .column
             h3.ui.top.attached.header Today meettings
-            .ui.attached.segment
+            .ui.relaxed.divided.list.attached.segment
               - @meetings.each do |meeting|
-                .ui.list
-                  .item
-                    .content
-                      .header
-                        = "#{meeting.start_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
-                  .ui.clearing.divider
+                .item
+                  .content
+                    .header
+                      = "#{meeting.start_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
+            .ui.bottom.attached.header
+
         - if @absences
           .column
             h3.ui.top.attached.header
               | Today absences
-            .ui.attached.segment
+            .ui.relaxed.divided.list.attached.segment
               - @absences.each do |absence|
-                .ui.list
-                  .item
-                    - url = 'https://github.com/DavidKang.png?size=40'
-                    = gravatar url
-                    .content
-                      .header
-                        = absence.user.email
-                        span
-                          = " | until #{absence.end_date}"
-                      - if absence.description.present?
-                        .description= absence.description
-                  .ui.clearing.divider
-
-      .ui.one.column.grid
-        - if @sprints
-          .column
-            h3.ui.top.attached.header
-              = "Sprint #{@sprint.start_date} until #{@sprint.end_date}"
-            .ui.attached.segment
+                .item
+                  - url = "https://github.com/#{absence.user.try(:github_login)}.png?size=40"
+                  = gravatar url
+                  .content
+                    .header
+                      = absence.user.email
+                      span
+                        = " | until #{absence.end_date}"
+                    - if absence.description.present?
+                      .description= absence.description
+            .ui.bottom.attached.header
 
     .column
       - if @pull_requests.present?
@@ -45,9 +37,8 @@
           h3.ui.top.attached.header
             strong= @pull_requests.count
             |  Opened Pull Requests
-          .ui.attached.segment.pull_requests
+          .ui.relaxed.divided.list.attached.segment.pull_requests
             - @pull_requests.reverse_each do |pr|
-              .ui.relaxed.list
                 .item
                   = gravatar pr.gravatar
                   .content
@@ -56,4 +47,4 @@
                     .header
                       = link_to pr.url, target: :_blank do
                         = "#{pr.number} - #{pr.title}"
-                .ui.clearing.divider
+          .ui.bottom.attached.header
