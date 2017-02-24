@@ -1,18 +1,30 @@
 .ui.grid
-  .four.wide.column
+  .eight.wide.column
     .ui.segment
-      h1
-        | Meetings
-        = new_link_to 'meetings'
+      h1 Meetings
       .ui.relaxed.divided.list
         - @meetings.each do |meeting|
           .item
             .content
               .header
-                = "#{meeting.start_date.strftime("%d-%m-%Y")} at #{meeting.start_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
+                = "#{meeting.start_date.strftime("%d-%m-%Y")} at #{meeting.start_date.strftime("%H:%M")} until #{meeting.end_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
                 span.action.right.floated
                   = link_to edit_meeting_path(meeting) do
                     i.write.icon
                   = link_to meeting_path(meeting), method: :delete do
                     i.remove.icon
 
+  .eight.wide.column
+    .ui.six.wide.column.segment
+      = simple_form_for(@meeting, html: { class: 'ui form'}) do |f|
+        .two.fields
+          = f.input :name, as: :string
+          = f.input :event_type, collection: Meeting::TYPES
+        .three.fields
+          = f.input :location, as: :string
+          = f.input :start_date, as: :string, wrapper_html: { class: 'calendar' }
+          = f.input :end_date, as: :string, wrapper_html: { class: 'calendar' }
+        .ui.right.floated.buttons
+          = link_to 'Cancel', meetings_path, class: 'ui button'
+          .or
+          = f.submit 'Create', class: 'ui green button'

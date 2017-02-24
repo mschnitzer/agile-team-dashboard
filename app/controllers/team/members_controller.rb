@@ -21,6 +21,7 @@ class Team::MembersController < ApplicationController
   end
 
   def show
+    @absences = @member.absences
   end
 
   def edit

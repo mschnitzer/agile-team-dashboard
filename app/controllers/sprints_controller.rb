@@ -3,9 +3,6 @@ class SprintsController < ApplicationController
 
   def index
     @sprints = Sprint.all
-  end
-
-  def new
     @sprint = Sprint.new
   end
 
@@ -18,9 +15,6 @@ class SprintsController < ApplicationController
       flash.now[:error] = 'ohhhhhhhh'
       render :new
     end
-  end
-
-  def show
   end
 
   def edit

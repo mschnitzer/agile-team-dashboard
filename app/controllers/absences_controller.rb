@@ -2,10 +2,7 @@ class AbsencesController < ApplicationController
   before_action :set_absence, only: %i{show edit update destroy}
 
   def index
-    @absences = Absence.all
-  end
-
-  def new
+    @absences = current_user.absences
     @absence = Absence.new
   end
 
@@ -18,9 +15,6 @@ class AbsencesController < ApplicationController
       flash.now[:error] = 'ohhhhhhhh'
       render :new
     end
-  end
-
-  def show
   end
 
   def edit

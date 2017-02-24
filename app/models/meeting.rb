@@ -4,5 +4,5 @@ class Meeting < Event
 
   # Contants
   #
-  MEETING_TYPES = %i[standup planning retrospective meeting workshop other]
+  TYPES = %i[standup planning retrospective meeting workshop other]
 end

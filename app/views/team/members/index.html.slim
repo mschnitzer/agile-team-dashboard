@@ -1,20 +1,19 @@
 .ui.centered.cards
   - @members.each do |member|
-    - 5.times do
-      .card
-        = link_to team_member_path(member), class: 'image' do
-          - if member.gravatar_url
-            = image_tag member.gravatar_url
-          - else
-            = image_tag 'no-image.png'
-        .content
-          .header= member.fullname
-          .meta
-            span= "from #{member.location}"
-          .meta
-            = github_link_to member.github_login
-          .meta
-            = mail_to member.email do
-              i.mail.icon
-              = member.email
+    .card
+      = link_to team_member_path(member), class: 'image' do
+        - if member.gravatar_url
+          = image_tag member.gravatar_url
+        - else
+          = image_tag 'no-image.png'
+      .content
+        .header= member.fullname
+        .meta
+          span= "from #{member.location}"
+        .meta
+          = github_link_to member.github_login
+        .meta
+          = mail_to member.email do
+            i.mail.icon
+            = member.email
 

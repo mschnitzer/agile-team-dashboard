@@ -3,9 +3,6 @@ class MeetingsController < ApplicationController
 
   def index
     @meetings = Meeting.all
-  end
-
-  def new
     @meeting = Meeting.new
   end
 
@@ -18,9 +15,6 @@ class MeetingsController < ApplicationController
       flash.now[:error] = 'ohhhhhhhh'
       render :new
     end
-  end
-
-  def show
   end
 
   def edit
