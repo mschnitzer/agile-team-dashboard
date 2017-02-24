@@ -4,11 +4,10 @@ Rails.application.routes.draw do
 
   root to: 'dashboards#index'
 
-  resources :dashboards do
-    get :calendar, on: :collection
-  end
+  resources :dashboards
+  resources :calendars, only: :index
   resources :sprints
-  resources :events
+  resources :meetings
   resources :absences
   namespace :team do
     resources :members

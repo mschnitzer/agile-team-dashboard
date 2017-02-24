@@ -3,8 +3,8 @@ class DashboardsController < ApplicationController
   def index
     @sprint = Sprint.current
     @absences = Absence.current
-    @events = Event.today
-    @this_week = Event.today
+    @meetings = Meeting.today
+    @this_week = Meeting.today
     @pull_requests = github_pull_requests
   end
 
@@ -26,9 +26,5 @@ class DashboardsController < ApplicationController
       end
     end
     pull_requests
-  end
-
-  def calendar
-
   end
 end

@@ -13,7 +13,7 @@ $(document).on "turbolinks:load", ->
   $('#calendar').fullCalendar({
     firstDay: '1',
     eventSources: [
-      '/events.json'
+      '/calendars.json'
     ]
   })
 

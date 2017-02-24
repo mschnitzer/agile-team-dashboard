@@ -1,14 +1,10 @@
-class Absence < ApplicationRecord
-  belongs_to :user
-
-  validates :start_date, :end_date, :absence_kind, presence: true
+class Absence < Event
+  validates :start_date, :end_date, :event_type, presence: true
 
   scope :current, -> { where('start_date <= :today AND end_date >= :today', {today: Date.today}) }
-
-
-  def full_data
-    user.email
-  end
+  # Contants
+  #
+  ABSENCE_TYPES = %i[workshop vacation sick other]
 end
 
 # == Schema Information

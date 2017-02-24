@@ -2,7 +2,9 @@
   .ui.six.wide.column.segment.login
     = simple_form_for(@absence, html: { class: 'ui form '}) do |f|
       = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-      = f.input :absence_kind, as: :string
+      .two.fields
+        = f.input :location, as: :string
+        = f.input :event_type, collection: Meeting::MEETING_TYPES
       .two.fields
         = f.input :start_date, as: :string,
                                wrapper_html: { class: 'calendar_range_start' }

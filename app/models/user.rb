@@ -38,6 +38,8 @@ end
 #  surname                :string
 #  birthday               :date
 #  location               :string
+#  github_login           :string
+#  gravatar_url           :string
 #
 # Indexes
 #

@@ -3,10 +3,6 @@ class AbsencesController < ApplicationController
 
   def index
     @absences = Absence.all
-    respond_to do |format|
-      format.html
-      format.json { render json: calendar_data  }
-    end
   end
 
   def new
@@ -58,22 +54,11 @@ class AbsencesController < ApplicationController
   def permitted_params
     params.require(:absence).permit(
       :user_id,
+      :location,
+      :event_type,
       :start_date,
       :end_date,
-      :description,
-      :absence_kind
+      :description
     )
-  end
-
-  def calendar_data
-    data = []
-    @absences.each do |absence|
-      data << CalendarEvent.new(
-        title: absence.absence_kind,
-        start: absence.start_date,
-        end: absence.end_date
-      )
-    end
-    return data
   end
 end

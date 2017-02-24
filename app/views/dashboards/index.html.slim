@@ -2,16 +2,16 @@
   .two.column.row
     .column
       .ui.two.column.grid
-        - if @events
+        - if @meetings
           .column
             h3.ui.top.attached.header Today meettings
             .ui.attached.segment
-              - @events.each do |event|
+              - @meetings.each do |meeting|
                 .ui.list
                   .item
                     .content
                       .header
-                        = "#{event.date.strftime("%H:%M")} - #{event.name} in #{event.location}"
+                        = "#{meeting.start_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
                   .ui.clearing.divider
         - if @absences
           .column

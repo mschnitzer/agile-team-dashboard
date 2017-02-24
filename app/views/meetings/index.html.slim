@@ -1,0 +1,18 @@
+.ui.grid
+  .four.wide.column
+    .ui.segment
+      h1
+        | Meetings
+        = new_link_to 'meetings'
+      .ui.relaxed.divided.list
+        - @meetings.each do |meeting|
+          .item
+            .content
+              .header
+                = "#{meeting.start_date.strftime("%d-%m-%Y")} at #{meeting.start_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
+                span.action.right.floated
+                  = link_to edit_meeting_path(meeting) do
+                    i.write.icon
+                  = link_to meeting_path(meeting), method: :delete do
+                    i.remove.icon
+
