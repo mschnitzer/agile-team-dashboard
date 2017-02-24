@@ -14,6 +14,7 @@ $(document).on "turbolinks:load", ->
     firstDay: '1',
     eventSources: [
       '/calendars.json'
-    ]
+    ],
+    timeFormat: 'H:mm'
   })
 
