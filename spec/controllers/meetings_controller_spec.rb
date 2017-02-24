@@ -1,54 +1,63 @@
 require 'rails_helper'
 
 RSpec.describe MeetingsController, type: :controller do
+  let(:miyagi) { create :miyagi }
+  let(:standup) { create :standup }
 
-  describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
+  before do
+    login_as miyagi
   end
 
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
+  describe "GET #index" do
+    context 'showing all meetings' do
+      before do
+        get :index
+      end
+
+      it { expect(assigns(:meetings).count).to eq(Meeting.all.count) }
     end
   end
 
   describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+    before do
+      post :create, params: { meeting: { name: 'planning', start_date:  Date.today, end_date: Date.today, location: 'mumble', event_type: 'planning' } }
     end
+
+    it { expect(response).to redirect_to(meetings_path) }
   end
 
   describe "GET #show" do
+    before do
+      get :show, params: { id: standup.id }
+    end
     it "returns http success" do
-      get :show
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #edit" do
+    before do
+      get :edit, params: { id: standup.id }
+    end
     it "returns http success" do
-      get :edit
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #update" do
-    it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
+    before do
+      patch :update, params: { id: standup.id, meeting: { name: 'updated' } }
     end
+
+    it { expect(response).to redirect_to(meetings_path) }
   end
 
   describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
+    before do
+      delete :destroy, params: { id: standup.id }
     end
+
+    it { expect(response).to redirect_to(meetings_path) }
   end
 
 end
