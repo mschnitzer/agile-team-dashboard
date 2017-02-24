@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do
-  %i[name location date].each do |attr|
+RSpec.describe Meeting, type: :model do
+  %i[location start_date end_date event_type].each do |attr|
     it { should validate_presence_of(attr) }
   end
 end
