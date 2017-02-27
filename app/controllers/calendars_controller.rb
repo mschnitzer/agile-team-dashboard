@@ -17,6 +17,7 @@ class CalendarsController < ApplicationController
       CalendarEvent.new(title: event.full_data,
                         start: event.start_date,
                         end: event.end_date,
+                        description: event.description,
                         color: event.color)
     end
     public_holidays =

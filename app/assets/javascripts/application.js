@@ -15,6 +15,7 @@
 //= require turbolinks
 // Loads all Semantic javascripts
 //= require semantic-ui
+//= require jquery.qtip.min
 //= require calendar.min
 //= require moment
 //= require fullcalendar
