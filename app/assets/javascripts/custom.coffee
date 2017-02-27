@@ -18,18 +18,18 @@ $(document).on "turbolinks:load", ->
     timeFormat: 'H:mm',
     displayEventEnd: 'true',
     eventRender: (event, element) ->
-      if event.description
-        element.qtip
-          content: {
-            text: event.description
-          },
-          position: {
-            my: 'center center',
-            at: 'top center'
-          },
-          style: {
-            classes: 'qtip-green qtip-shadow qtip-rounded'
-          }
+      element.qtip
+        content: {
+          title: { text: event.title },
+          text: event.description
+        },
+        position: {
+          my: 'center center',
+          at: 'top center'
+        },
+        style: {
+          classes: 'qtip-green qtip-shadow qtip-rounded'
+        }
 
       return
 
