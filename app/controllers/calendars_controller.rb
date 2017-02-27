@@ -1,7 +1,6 @@
 class CalendarsController < ApplicationController
 
   def index
-    @events = Event.all
     respond_to do |format|
       format.html
       format.json { render json: calendar_data  }
@@ -11,12 +10,25 @@ class CalendarsController < ApplicationController
   private
 
   def calendar_data
-    @events.map do |event|
+    start_date = params[:start].present? ? params[:start] : Date.today.beginning_of_month
+    end_date = params[:end].present? ? params[:end] : Date.end.beginning_of_month
+
+    events = Event.in_month(start_date).map do |event|
       CalendarEvent.new(title: event.full_data,
                         start: event.start_date,
                         end: event.end_date,
                         color: event.color)
     end
-  end
+    public_holidays =
+      Holidays.between(start_date, end_date, [:es,:gb,:cz]).map do |holiday|
+        CalendarEvent.new(
+          title: "#{holiday[:regions].first.try(:to_s)} - #{holiday[:name]}",
+          start: holiday[:date],
+          color: '#DECAEE',
+          textColor: 'black'
+        )
+    end
 
+    events + public_holidays
+  end
 end

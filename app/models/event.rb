@@ -1,16 +1,21 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
 
+  scope :in_month, ->(start_date) {
+    where('start_date >= ?', start_date)
+  }
+
   # Contants
   #
   COLORS = {
-    vacation: 'blue',
+    vacation: '#88b200',
     sick: 'red',
-    standup: 'green',
-    planning: 'orange',
-    retrospective: 'rose',
-    workshop: 'black',
-    other: 'orange'
+    standup: '#0088b2',
+    planning: '#ffc125',
+    retrospective: '#491b47',
+    workshop: '#920076',
+    meeting: '#bf4469',
+    other: '#c25975'
   }
 
   # Instance methods
