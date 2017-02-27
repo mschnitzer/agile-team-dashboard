@@ -19,8 +19,8 @@ RSpec.describe Absence, type: :model do
 
   describe '#color' do
     context 'when Mr. Miyagi is in vacation' do
-      it 'he needs his blue chopsticks' do
-        expect(vacation.color).to eq('blue')
+      it 'he needs his #88b200 chopsticks' do
+        expect(vacation.color).to eq('#88b200')
       end
     end
 

@@ -21,26 +21,26 @@ RSpec.describe Meeting, type: :model do
 
   describe '#color' do
     context 'when Mr. Miyagi have a standup' do
-      it 'he needs his green headband' do
-        expect(standup.color).to eq('green')
+      it 'he needs his #0088b2 headband' do
+        expect(standup.color).to eq('#0088b2')
       end
     end
 
     context 'when Mr. Miyagi have a planning' do
-      it 'he needs his orange headband' do
-        expect(planning.color).to eq('orange')
+      it 'he needs his #ffc125 headband' do
+        expect(planning.color).to eq('#ffc125')
       end
     end
 
     context 'when Mr. Miyagi have a retrospective' do
-      it 'he needs his rose headband' do
-        expect(retrospective.color).to eq('rose')
+      it 'he needs his #491b47 headband' do
+        expect(retrospective.color).to eq('#491b47')
       end
     end
 
     context 'when Mr. Miyagi have a workshop' do
-      it 'he needs his black headband' do
-        expect(workshop.color).to eq('black')
+      it 'he needs his #920076 headband' do
+        expect(workshop.color).to eq('#920076')
       end
     end
   end
