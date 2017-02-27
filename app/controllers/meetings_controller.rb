@@ -2,7 +2,8 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: %i{show edit update destroy}
 
   def index
-    @meetings = Meeting.all
+    @active_meetings = Meeting.active
+    @finished_meetings = Meeting.finished
     @meeting = Meeting.new
   end
 

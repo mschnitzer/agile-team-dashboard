@@ -1,6 +1,12 @@
 class Meeting < Event
   validates :location, :start_date, :end_date, :event_type, presence: true
+
   scope :today, -> { where('DATE(start_date) = ?', Date.today).order(start_date: :asc) }
+  scope :active, -> {
+    where('DATE(start_date) >= :today OR DATE(end_date) >= :today', { today: Date.today })
+    .order(start_date: :asc)
+  }
+  scope :finished, -> { where('DATE(end_date) < ?', Date.today).order(start_date: :asc) }
 
   # Contants
   #
