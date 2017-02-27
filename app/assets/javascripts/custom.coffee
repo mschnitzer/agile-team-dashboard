@@ -15,7 +15,8 @@ $(document).on "turbolinks:load", ->
     eventSources: [
       '/calendars.json'
     ],
-    timeFormat: 'H:mm'
+    timeFormat: 'H:mm',
+    displayEventEnd: 'true',
     eventRender: (event, element) ->
       if event.description
         element.qtip

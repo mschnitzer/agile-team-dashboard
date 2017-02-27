@@ -20,8 +20,8 @@ class Event < ApplicationRecord
 
   # Instance methods
   #
-  def full_data
-    [user.try(:github_login), event_type, name ].reject { |e| e.blank? }.join(' - ')
+  def title
+    [user.try(:github_login), event_type].reject { |e| e.blank? }.join(' - ')
   end
 
   def all_day?

@@ -14,7 +14,7 @@ class CalendarsController < ApplicationController
     end_date = params[:end].present? ? params[:end] : Date.end.beginning_of_month
 
     events = Event.in_month(start_date).map do |event|
-      CalendarEvent.new(title: event.full_data,
+      CalendarEvent.new(title: event.title,
                         start: event.start_date,
                         end: event.end_date,
                         description: event.description,
