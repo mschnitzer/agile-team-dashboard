@@ -33,6 +33,11 @@ body { background: $color2; }
 section {
   margin-left: 210px;
   padding: 45px 25px 20px;
+
+  .fc-content {
+    font-size: 1.3em;
+    padding: 0.2em;
+  }
 }
 
 footer {
