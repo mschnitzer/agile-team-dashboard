@@ -38,6 +38,7 @@
           = f.input :location, as: :string
           = f.input :start_date, as: :string, wrapper_html: { class: 'calendar' }
           = f.input :end_date, as: :string, wrapper_html: { class: 'calendar' }
+        = f.input :description, input_html: { rows: 3, cols: 40 }
         .ui.right.floated.buttons
           = link_to 'Cancel', meetings_path, class: 'ui button'
           .or
