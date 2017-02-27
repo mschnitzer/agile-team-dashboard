@@ -18,7 +18,9 @@ class CalendarsController < ApplicationController
                         start: event.start_date,
                         end: event.end_date,
                         description: event.description,
-                        color: event.color)
+                        color: event.color,
+                        allDay: event.all_day?
+                       )
     end
     public_holidays =
       Holidays.between(start_date, end_date, [:es,:gb,:cz]).map do |holiday|

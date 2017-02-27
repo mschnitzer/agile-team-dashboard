@@ -24,6 +24,10 @@ class Event < ApplicationRecord
     [event_type, user.try(:github_login), name ].compact.join(' - ')
   end
 
+  def all_day?
+    %w[vacation sick].include?(event_type)
+  end
+
   def color
     COLORS[event_type.try(:to_sym)]
   end
