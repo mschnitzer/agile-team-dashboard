@@ -29,9 +29,11 @@
           = f.input :name
           = f.input :surname
         .three.fields
-          = f.input :birthday, as: :string, wrapper_html: { class: 'calendar' }
+          = f.input :birthday, as: :string
           = f.input :github_login
-          = f.input :location
+          .input.field
+            = f.label :location
+            = f.country_select :location, { include_blank: 'Select a country' }, { class: 'dropdown' }
         .actions
           .ui.right.floated.buttons
             = link_to 'Cancel', edit_team_member_path(@member), class: 'ui button'

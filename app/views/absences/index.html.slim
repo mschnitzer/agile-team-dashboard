@@ -19,7 +19,7 @@
         = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
         .two.fields
           = f.input :location, as: :string
-          = f.input :event_type, collection: Absence::TYPES
+          = f.input :event_type, collection: Absence::TYPES, input_html: { class: 'dropdown' }
         .two.fields
           = f.input :start_date, as: :string,
                                  wrapper_html: { class: 'calendar_range_start' }

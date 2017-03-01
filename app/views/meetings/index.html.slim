@@ -33,7 +33,7 @@
       = simple_form_for(@meeting, html: { class: 'ui form'}) do |f|
         .two.fields
           = f.input :name, as: :string
-          = f.input :event_type, collection: Meeting::TYPES
+          = f.input :event_type, collection: Meeting::TYPES, input_html: { class: 'dropdown' }
         .three.fields
           = f.input :location, as: :string
           = f.input :start_date, as: :string, wrapper_html: { class: 'calendar' }

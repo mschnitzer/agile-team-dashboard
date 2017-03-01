@@ -39,6 +39,7 @@ gem 'pundit'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'active_hash'
+gem 'country_select'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

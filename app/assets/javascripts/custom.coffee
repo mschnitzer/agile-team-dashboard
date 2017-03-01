@@ -10,6 +10,8 @@ $(document).on "turbolinks:load", ->
   $('.ui.dropdown').dropdown
     action: 'hide'
 
+  $('select.dropdown').dropdown()
+
   $('#calendar').fullCalendar
     firstDay: '1',
     eventSources: [
