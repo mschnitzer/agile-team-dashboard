@@ -2,12 +2,12 @@
   .eight.wide.column
     .ui.segment
       h1 Active meetings
-      .ui.relaxed.divided.list
+      .ui.divided.list
         - @active_meetings.each do |meeting|
           .item
             .content
               .header
-                = "#{meeting.start_date.strftime("%d-%m-%Y")} at #{meeting.start_date.strftime("%H:%M")} until #{meeting.end_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
+                = "#{meeting.start_date.strftime("%d-%m-%Y")} #{meeting.event_type} at #{meeting.start_date.strftime("%H:%M")} until #{meeting.end_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
                 span.action.right.floated
                   = link_to edit_meeting_path(meeting) do
                     i.write.icon
@@ -15,12 +15,12 @@
                     i.remove.icon
     .ui.segment
       h1 Finished meetings
-      .ui.relaxed.divided.list
+      .ui.divided.list
         - @finished_meetings.each do |meeting|
           .item
             .content
               .header
-                = "#{meeting.start_date.strftime("%d-%m-%Y")} at #{meeting.start_date.strftime("%H:%M")} until #{meeting.end_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
+                = "#{meeting.start_date.strftime("%d-%m-%Y")} #{meeting.event_type} at #{meeting.start_date.strftime("%H:%M")} until #{meeting.end_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
                 span.action.right.floated
                   = link_to edit_meeting_path(meeting) do
                     i.write.icon

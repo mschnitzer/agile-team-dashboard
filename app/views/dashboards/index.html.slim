@@ -5,19 +5,19 @@
         - if @meetings
           .column
             h3.ui.top.attached.header Today meettings
-            .ui.relaxed.divided.list.attached.segment
+            .ui.divided.list.attached.segment
               - @meetings.each do |meeting|
                 .item
                   .content
                     .header
-                      = "#{meeting.start_date.strftime("%H:%M")} - #{meeting.name} in #{meeting.location}"
+                      = "#{meeting.start_date.strftime("%H:%M")} - #{meeting.event_type} - #{meeting.name} in #{meeting.location}"
             .ui.bottom.attached.header
 
         - if @absences
           .column
             h3.ui.top.attached.header
               | Today absences
-            .ui.relaxed.divided.list.attached.segment
+            .ui.divided.list.attached.segment
               - @absences.each do |absence|
                 .item
                   - url = "https://github.com/#{absence.user.try(:github_login)}.png?size=40"
