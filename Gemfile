@@ -77,3 +77,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
 end
+
+group :production do
+  # passenger for apache2
+  gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
+end

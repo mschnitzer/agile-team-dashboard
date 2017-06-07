@@ -158,6 +158,9 @@ GEM
     orm_adapter (0.5.0)
     parser (2.4.0.0)
       ast (~> 2.2)
+    passenger (5.1.4)
+      rack
+      rake (>= 0.8.1)
     pg (0.19.0)
     phantomjs (2.1.1.0)
     poltergeist (1.13.0)
@@ -329,6 +332,7 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   momentjs-rails
+  passenger (>= 5.0.25)
   pg (~> 0.18)
   phantomjs
   poltergeist
@@ -356,4 +360,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.4
+   1.15.0
